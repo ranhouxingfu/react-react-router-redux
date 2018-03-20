@@ -1,0 +1,32 @@
+.article-box {
+  padding: 15px;
+  border: 1px solid gainsboro;
+  border-radius: 5px;
+  background: #ffffff;
+  margin: 15px 0;
+  transition: 0.3s all linear;
+  &:hover {
+    box-shadow: 0px 0px 10px 5px gainsboro;
+  }
+  .article-basic {
+    color: grey;
+    font-size: 12px;
+    span {
+      padding: 0 10px 0 0;
+    }
+  }
+  .article-content {
+    text-indent: 2rem;
+    display: -webkit-box;
+    width: 100%;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+.content-box {
+  .pagination-box {
+    text-align: right;
+  }
+}
