@@ -9,9 +9,9 @@ class Nav extends React.Component {
         return (
             <div className="menu-box">
                 <ul className="menu-contain">
-                    <li><Link to="/home">首页</Link></li>
-                    <li><Link to="/main">Main</Link></li>
-                    <li><Link to="/login">Login</Link></li>
+                    <li><Link to="/">首页</Link></li>
+                    <li><Link to="/Archive">归档</Link></li>
+                    <li><Link to="/life">生活</Link></li>
                 </ul>
             </div>
         )
