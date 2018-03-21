@@ -11,7 +11,9 @@ export default function (importComponent) {
                 component: null
             }
         }
-
+        componentWillMount() {
+            console.log(this.state.component)
+        }
         async componentDidMount() {
             const {default:component} =await importComponent()
             this.setState({component: component})

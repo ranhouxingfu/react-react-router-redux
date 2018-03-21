@@ -21,7 +21,9 @@ class Life extends React.Component {
                     direction="vertical"
                     key={'arTime'+index}
                     className="steps-box">
-                    <Step title={item.archiveTime} description={test1}/>
+                    <Step
+                        title={item.archiveTime}
+                        description={test1}/>
                 </Steps>
             )
         })

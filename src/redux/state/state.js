@@ -65,7 +65,7 @@ const initState = {
                 title: 'react+react-router+react-redux搭建环境',
             }]
         }, {
-            id: 2,
+            id: 3,
             archiveTime: '2018-01-13',
             archiveUser: '张三',
             type: 'React',
@@ -77,7 +77,78 @@ const initState = {
                 id: 2,
                 title: 'react+react-router+react-redux搭建环境',
             }]
+        }, {
+            id: 4,
+            archiveTime: '2018-01-13',
+            archiveUser: '张三',
+            type: 'React',
+            scanNum: 224,
+            children: [{
+                id: 1,
+                title: 'react+react-router+react-redux搭建环境',
+            }, {
+                id: 2,
+                title: 'react+react-router+react-redux搭建环境',
+            }, {
+                id: 3,
+                title: 'react+react-router+react-redux搭建环境',
+            }, {
+                id: 4,
+                title: 'react+react-router+react-redux搭建环境',
+            }]
+        }, {
+            id: 5,
+            archiveTime: '2018-01-13',
+            archiveUser: '张三',
+            type: 'React',
+            scanNum: 224,
+            children: [{
+                id: 1,
+                title: 'react+react-router+react-redux搭建环境',
+            }, {
+                id: 2,
+                title: 'react+react-router+react-redux搭建环境',
+            }]
+        }, {
+            id: 6,
+            archiveTime: '2018-01-13',
+            archiveUser: '张三',
+            type: 'React',
+            scanNum: 224,
+            children: [{
+                id: 1,
+                title: 'react+react-router+react-redux搭建环境',
+            }]
         }
-    ]
+    ],
+    lifeList: [
+        {
+            id: 1,
+            content: '新赛季揭幕战骑士vs凯尔特人：欧文运球过了半场，习惯性把球交给了詹姆斯，小托马斯猫在老詹身后一把把球掏走，炮弹般传给了中锋霍福德，霍福德高举右臂手不停球地把球塞给了顺下的克劳德。。。',
+            postName: '张三',
+            postTime: '2018-01-01',
+            weather: 1
+        },
+        {
+            id: 2,
+            content: '新赛季揭幕战骑士vs凯尔特人：欧文运球过了半场，习惯性把球交给了詹姆斯，小托马斯猫在老詹身后一把把球掏走，炮弹般传给了中锋霍福德，霍福德高举右臂手不停球地把球塞给了顺下的克劳德。。。',
+            postName: '张三',
+            postTime: '2018-01-02',
+            weather: 0
+        },
+        {
+            id: 3,
+            content: '新赛季揭幕战骑士vs凯尔特人：欧文运球过了半场，习惯性把球交给了詹姆斯，小托马斯猫在老詹身后一把把球掏走，炮弹般传给了中锋霍福德，霍福德高举右臂手不停球地把球塞给了顺下的克劳德。。。',
+            postName: '张三',
+            postTime: '2018-01-03',
+            weather: 2
+        },
+        {
+            id: 4,
+            content: '新赛季揭幕战骑士vs凯尔特人：欧文运球过了半场，习惯性把球交给了詹姆斯，小托马斯猫在老詹身后一把把球掏走，炮弹般传给了中锋霍福德，霍福德高举右臂手不停球地把球塞给了顺下的克劳德。。。',
+            postName: '张三',
+            postTime: '2018-01-03',
+            weather: 2
+        }]
 }
 export default initState
