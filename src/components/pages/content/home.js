@@ -4,17 +4,22 @@
 import React from 'react';
 import { Button,Icon, Pagination } from 'antd';
 import { connect } from 'react-redux';
-import {Link} from 'react-router-dom';
+//import {Link} from 'react-router-dom';
 import store from '../../../redux/store';
-import api from '../../../services/api';
+import {getArticleList} from '../../../services/api';
 import '../../../styles/content/home.less';
 //const action = type => store.dispatch({type})
 class Home extends React.Component {
     constructor(props) {
         super(props)
+        this.state = {
+            articleList: []
+        }
         this.onShowSizeChange = this.onShowSizeChange.bind(this)
         this.onChange = this.onChange.bind(this)
+        //this.readDetail = this.readDetail.bind(this)
     }
+
 
     onShowSizeChange(current, pageSize) {
         console.log(current, pageSize);
@@ -24,23 +29,27 @@ class Home extends React.Component {
         console.log('Page: ', pageNumber);
     }
 
+    readDetail(id) {
+        this.props.history.push('/detail/'+id)
+    }
+
     componentDidMount() {
-        api.getArticleList().then((res)=> {
-            debugger
-            console.log(res)
+        console.log(this)
+        getArticleList().then((res)=> {
+            this.setState({
+                articleList: res.data
+            })
         })
     }
 
     render() {
-        let articleList = [];
-        const list = articleList.map((item, index)=> {
+        const list = this.state.articleList.map((item, index)=> {
             return <div className="article-box" key={index}>
                 <h2>{item.title}</h2>
                 <p className="article-basic">
-                    <span>上传时间：{item.uploadTime}</span><span>类型：{item.type}</span><span>浏览：{item.scanNum}</span></p>
+                    <span>上传时间：{item.time}</span><span>类型：{item.type}</span><span>浏览：{item.scanTimes}</span></p>
                 <p className="article-content">{item.content}</p>
-                <p><Button type="primary">
-                    <Link to={"/detail/"+item.id}>阅读更多<Icon type="right"/></Link>
+                <p><Button type="primary" onClick={this.readDetail.bind(this,item.id)}>阅读更多<Icon type="right"/>
                 </Button></p>
             </div>
         })
@@ -50,7 +59,7 @@ class Home extends React.Component {
                 <Pagination
                     className="pagination-box"
                     defaultCurrent={1}
-                    total={articleList.length}
+                    total={this.state.articleList.length}
                     showSizeChanger
                     showQuickJumper
                     onShowSizeChange={this.onShowSizeChange}

@@ -4,7 +4,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 //import store from '../../../redux/store';
-import '../../../mock/article';
+//import '../../../mock/article';
 class Detail extends React.Component {
     constructor(props) {
         super(props);
@@ -14,7 +14,7 @@ class Detail extends React.Component {
     }
 
     componentDidMount() {
-        console.log( this.props)
+        //console.log( this.props)
     }
 
     render() {

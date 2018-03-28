@@ -25,7 +25,6 @@ axios.interceptors.response.use((response)=> {
     return Promise.reject(error)
 })
 export const GET = (url) => {
-    debugger
     const CancelToken = axios.CancelToken;
     const request = axios.get(url, {
         cancelToken: new CancelToken(function executor(c) {
