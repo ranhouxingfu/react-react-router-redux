@@ -5,7 +5,10 @@ import React from 'react';
 import { Button,Icon, Pagination } from 'antd';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
+import store from '../../../redux/store';
+import api from '../../../services/api';
 import '../../../styles/content/home.less';
+//const action = type => store.dispatch({type})
 class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -21,8 +24,15 @@ class Home extends React.Component {
         console.log('Page: ', pageNumber);
     }
 
+    componentDidMount() {
+        api.getArticleList().then((res)=> {
+            debugger
+            console.log(res)
+        })
+    }
+
     render() {
-        let articleList = this.props.articleList.articleList;
+        let articleList = [];
         const list = articleList.map((item, index)=> {
             return <div className="article-box" key={index}>
                 <h2>{item.title}</h2>
@@ -30,7 +40,7 @@ class Home extends React.Component {
                     <span>上传时间：{item.uploadTime}</span><span>类型：{item.type}</span><span>浏览：{item.scanNum}</span></p>
                 <p className="article-content">{item.content}</p>
                 <p><Button type="primary">
-                    <Link to={"/home/"+item.id}>阅读更多<Icon type="right"/></Link>
+                    <Link to={"/detail/"+item.id}>阅读更多<Icon type="right"/></Link>
                 </Button></p>
             </div>
         })
@@ -51,6 +61,6 @@ class Home extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    articleList: state.articleList
+    articleList: state
 })
 export default connect(mapStateToProps)(Home);

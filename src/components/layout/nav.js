@@ -12,6 +12,7 @@ class Nav extends React.Component {
                     <li><Link to="/">首页</Link></li>
                     <li><Link to="/Archive">归档</Link></li>
                     <li><Link to="/life">生活</Link></li>
+                    <li><Link to="/saga">saga学习</Link></li>
                 </ul>
             </div>
         )

@@ -8,6 +8,8 @@ import Basic from '../components/index';
 const Home = asyncComponent(() => require('../components/pages/content/home'));
 const Archive = asyncComponent(() =>require('../components/pages/content/archive/index'));
 const Life = asyncComponent(() => require('../components/pages/content/life/index'));
+const Detail = asyncComponent(() => require('../components/pages/content/detail'));
+const Saga = asyncComponent( () => require('../components/pages/content/saga/index'))
 class Routes extends React.Component {
     render() {
         return (
@@ -16,6 +18,8 @@ class Routes extends React.Component {
                     <Route exact path="/" component={Home}/>
                     <Route path="/Archive" component={Archive}/>
                     <Route path="/life" component={Life}/>
+                    <Route path="/detail/:number" component={Detail}/>
+                    <Route path="/saga" component={Saga}/>
                 </Switch>
             </Basic>
         )

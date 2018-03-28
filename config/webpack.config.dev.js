@@ -216,6 +216,10 @@ module.exports = {
                             name: 'static/media/[name].[hash:8].[ext]',
                         },
                     },
+                    {
+                        test:/\.json$/,
+                        loader:'json-loader'
+                    },
                 ],
             },
             // ** STOP ** Are you adding a new loader?

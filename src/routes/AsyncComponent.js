@@ -1,7 +1,6 @@
 /**
  * Created by sky on 2018/3/19.
  */
-
 import React from 'react';
 export default function (importComponent) {
     class AsyncComponent extends React.Component {
@@ -11,9 +10,7 @@ export default function (importComponent) {
                 component: null
             }
         }
-        componentWillMount() {
-            console.log(this.state.component)
-        }
+
         async componentDidMount() {
             const {default:component} =await importComponent()
             this.setState({component: component})

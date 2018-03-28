@@ -214,7 +214,7 @@ module.exports = {
           },
           {
             test: /\.less$/,
-            loader: 'style!css!less'
+            loader: 'style-loader!css-loader!less-loader'
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
