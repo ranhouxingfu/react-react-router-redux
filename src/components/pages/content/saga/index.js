@@ -5,38 +5,27 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Counter from './Counter';
-import store from './redux/index';
-import { actions,selectors } from './redux/index';
-const action = type => store.dispatch({type})
-//console.log(store)
-//@connect(null, {
-//    loginAction: actions.getArticleListAction,
-//})
-
 class SagaTest extends React.Component {
     static propTypes = {
         loginAction: propTypes.func
     }
 
     componentDidMount() {
-        debugger
-        console.log(actions)
-        actions.getArticleListAction()
-        console.log(selectors.articleList)
     }
 
     render() {
+        const {dispatch} = this.props;
         return (
             <Counter
                 value={this.props.state}
-                onIncrement={()=>action('INCREMENT')}
-                onDecrement={()=>action('DECREMENT')}
-                onIncrementAsync={()=>action('INCREMENT_IF_ODD')}
+                onIncrement={()=>dispatch({type:'ADD'})}
+                onDecrement={()=>dispatch({type:'CUT'})}
+                onIncrementAsync={()=>dispatch({type:'ADD_IF_ODD'})}
             />
         )
     }
 }
-const mapStateToProps = state => ({
-    state: state.data
-})
+const mapStateToProps = function (state) {
+    return {state: state.article.data}
+}
 export default connect(mapStateToProps)(SagaTest);

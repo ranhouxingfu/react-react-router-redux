@@ -5,7 +5,6 @@ import React from 'react';
 import { Button,Icon, Pagination } from 'antd';
 import { connect } from 'react-redux';
 import '../../../styles/content/home.less';
-//import {actions} from './saga/redux/actions/actions';
 class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -30,14 +29,16 @@ class Home extends React.Component {
         this.props.history.push('/detail/' + id)
     }
 
+    componentWillMount() {
+        const {dispatch} = this.props;
+        dispatch({type: 'GET_ARTICLE_LIST'});
+    }
+
     componentDidMount() {
-        //debugger
-        //actions.getArticleListAction()
     }
 
     render() {
-        console.log(this)
-        const list = this.state.articleList.map((item, index)=> {
+        const list = this.props.articleList.map((item, index)=> {
             return <div className="article-box" key={index}>
                 <h2>{item.title}</h2>
                 <p className="article-basic">
@@ -64,6 +65,6 @@ class Home extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    articleList: state
+    articleList: state.article.articleList
 })
 export default connect(mapStateToProps)(Home);

@@ -3,10 +3,12 @@
  */
 import {takeLatest,all} from 'redux-saga/effects';
 import {types} from '../index';
-import { getArticleListAsync } from './increment';
+import { getArticleListAsync,incrementAsync,decrementAsync ,addIfOddAsync} from './increment';
 export default function* saga() {
-    debugger
     yield all([
-        takeLatest(types.GET_ARTICLE_LIST, getArticleListAsync)
+        takeLatest(types.GET_ARTICLE_LIST, getArticleListAsync),
+        takeLatest(types.ADD, incrementAsync),
+        takeLatest(types.CUT,decrementAsync),
+        takeLatest(types.ADD_IF_ODD,addIfOddAsync)
     ])
 }

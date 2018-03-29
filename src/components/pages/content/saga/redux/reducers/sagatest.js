@@ -8,20 +8,17 @@ export const initialState = {
 }
 
 export default (state = initialState, action)=> {
-    debugger
+    const result = state.data;
     switch (action.type) {
         case types.INCREMENT:
-            return Object.assign({}, state, {data: state.data + 1});
+            return Object.assign({}, state, {data: action.data.payLoad + result});
         case types.DECREMENT:
-            return Object.assign({}, state, {data: state.data - 1});
+            return Object.assign({}, state, {data: result - action.data.payLoad});
         case types.INCREMENT_IF_ODD:
-            return (state.data % 2 !== 0) ? Object.assign({}, state, {data: state.data + 1}) : state;
+            return (result % 2 !== 0) ? Object.assign({}, state, {data: result + 1}) : state;
         case types.GET_ARTICLE_LIST_SUCCESS:
             return Object.assign({}, state, {articleList: action.data});
         default:
             return state;
     }
-}
-export const selectors = {
-    articleList: state => state.articleList
 }
