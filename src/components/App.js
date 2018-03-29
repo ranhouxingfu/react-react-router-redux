@@ -3,7 +3,7 @@ import './../styles/App.less';
 import {BrowserRouter} from 'react-router-dom';
 import Routes from '../routes/routes';
 import { Provider } from 'react-redux';
-import store from '../redux/store';
+import store from '../redux/store/index';
 class App extends React.Component {
     render() {
         return (

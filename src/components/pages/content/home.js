@@ -4,11 +4,8 @@
 import React from 'react';
 import { Button,Icon, Pagination } from 'antd';
 import { connect } from 'react-redux';
-//import {Link} from 'react-router-dom';
-import store from '../../../redux/store';
-import {getArticleList} from '../../../services/api';
 import '../../../styles/content/home.less';
-//const action = type => store.dispatch({type})
+//import {actions} from './saga/redux/actions/actions';
 class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -30,19 +27,16 @@ class Home extends React.Component {
     }
 
     readDetail(id) {
-        this.props.history.push('/detail/'+id)
+        this.props.history.push('/detail/' + id)
     }
 
     componentDidMount() {
-        console.log(this)
-        getArticleList().then((res)=> {
-            this.setState({
-                articleList: res.data
-            })
-        })
+        //debugger
+        //actions.getArticleListAction()
     }
 
     render() {
+        console.log(this)
         const list = this.state.articleList.map((item, index)=> {
             return <div className="article-box" key={index}>
                 <h2>{item.title}</h2>

@@ -3,11 +3,13 @@
  */
 import {createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import reducer from './reducers/sagatest';
-import rootSaga from './saga/increment';
+import rootReducer from '../reducer/index';
+import rootSaga from '../saga/index';
 const sagaMiddleware = createSagaMiddleware();
+const initialState = {};
 const store = createStore(
-    reducer,
+    rootReducer,
+    initialState,
     applyMiddleware(sagaMiddleware)
 )
 sagaMiddleware.run(rootSaga)

@@ -2,12 +2,29 @@
  * Created by sky on 2018/3/27.
  */
 import React from 'react';
-import {connect } from 'react-redux';
+import propTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Counter from './Counter';
-import store from '../../../../redux/store';
+import store from './redux/index';
+import { actions,selectors } from './redux/index';
 const action = type => store.dispatch({type})
 //console.log(store)
+//@connect(null, {
+//    loginAction: actions.getArticleListAction,
+//})
+
 class SagaTest extends React.Component {
+    static propTypes = {
+        loginAction: propTypes.func
+    }
+
+    componentDidMount() {
+        debugger
+        console.log(actions)
+        actions.getArticleListAction()
+        console.log(selectors.articleList)
+    }
+
     render() {
         return (
             <Counter
