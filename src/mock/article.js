@@ -3,7 +3,7 @@
  */
 import Mock from 'mockjs';
 //Mock.setup({timeout: '5100-500'});
-Mock.mock(/\.json/, {
+export default Mock.mock(/article.json/, {
         'status':6005,
         'data': [{
             'id': 1,

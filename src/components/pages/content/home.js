@@ -4,7 +4,8 @@
 import React from 'react';
 import { Button,Icon, Pagination } from 'antd';
 import { connect } from 'react-redux';
-import '../../../styles/content/home.less';
+import '@/styles/content/article.less';
+//import {actions} from './redux/index';
 class Home extends React.Component {
     constructor(props) {
         super(props)
@@ -26,7 +27,9 @@ class Home extends React.Component {
     }
 
     readDetail(id) {
+        const {dispatch} = this.props;
         this.props.history.push('/detail/' + id)
+        dispatch({type: 'GET_ARTICLE_DETAIL', id: id})
     }
 
     componentWillMount() {

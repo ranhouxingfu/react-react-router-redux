@@ -4,7 +4,10 @@
 import{types} from '../index';
 export const initialState = {
     data: 0,
-    articleList: []
+    articleList: [],
+    lifeList: [],
+    articleDetail: {},
+    archiveList: []
 }
 
 export default (state = initialState, action)=> {
@@ -18,6 +21,12 @@ export default (state = initialState, action)=> {
             return (result % 2 !== 0) ? Object.assign({}, state, {data: result + 1}) : state;
         case types.GET_ARTICLE_LIST_SUCCESS:
             return Object.assign({}, state, {articleList: action.data});
+        case types.GET_LIFE_LIST_SUCCESS:
+            return Object.assign({}, state, {lifeList: action.data});
+        case types.GET_ARTICLE_DETAIL_SUCCESS:
+            return Object.assign({}, state, {articleDetail: action.data});
+        case types.GET_ARCHIVE_LIST_SUCCESS:
+            return Object.assign({}, state, {archiveList: action.data});
         default:
             return state;
     }

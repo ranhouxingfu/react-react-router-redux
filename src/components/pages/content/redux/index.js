@@ -3,7 +3,7 @@
  */
 import {actions as articleActions} from './actions/actions';
 import {types as articleTypes} from './actionTypes/actionTypes';
-import articleReducer from './reducers/sagatest';
+import articleReducer from './reducers/reducer';
 export const actions = {
     ...articleActions
 }

@@ -8,19 +8,30 @@ import {Link} from 'react-router-dom';
 import '../../../../styles/content/archive.less';
 //const Step = Steps.Step;
 const Item = Timeline.Item;
-class Life extends React.Component {
+class Archive extends React.Component {
+    componentWillMount() {
+        const {dispatch} = this.props;
+        dispatch({type: 'GET_ARCHIVE_LIST'});
+    }
+
+    goDetail(id) {
+        const {dispatch} = this.props;
+        this.props.history.push('/detail/' + id)
+        dispatch({type: 'GET_ARTICLE_DETAIL', id: id})
+    }
+
     render() {
-        let archiveList = this.props.archiveList.archiveList;
-        let list = archiveList.map((item, index)=> {
+        let archiveList = this.props.archiveList;
+        let list = this.props.archiveList.map((item, index)=> {
             const childrenList = item.children;
             let test1 = childrenList.map((item1, index1)=> {
-                return <p key={'arcon'+index1}><Link to={'/home/'+item1.id}>{item1.title}</Link></p>
+                return <p key={'arcon'+index1}><a onClick={this.goDetail.bind(this,item1.id)}>{item1.title}</a></p>
             })
             return (
                 <Item key={index}
                       dot={<Icon type="clock-circle-o"/>}
                       color="red">
-                    <p>{item.archiveTime}</p>
+                    <p>{item.time}</p>
                     {test1}
                 </Item>
             )
@@ -33,6 +44,6 @@ class Life extends React.Component {
     }
 }
 const mapStateToProps = state => ({
-    archiveList: state.articleList
+    archiveList: state.article.archiveList
 })
-export default connect(mapStateToProps)(Life);
+export default connect(mapStateToProps)(Archive);
